@@ -6,7 +6,7 @@ on:
 jobs:
   onpush:
     name: test
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - name: onpush
         uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
