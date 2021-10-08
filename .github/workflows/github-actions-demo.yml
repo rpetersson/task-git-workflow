@@ -1,19 +1,16 @@
-name: Pipeline Name
+name: MS Teams Deploy Card
 
-on:
-push:
-    branches: [ branch_name ]
-pull_request:
-    branches: [ branch_name ]
+on: [push]
+
 jobs:
-
-notify:
+  build:
     runs-on: ubuntu-latest
-    if: always()
-    needs: build
+
     steps:
-    - name: Notify Teams
-        uses: thechetantalwar/teams-notify@v2
+      - uses: actions/checkout@v2
+      # this is the new step
+      - uses: toko-bifrost/ms-teams-deploy-card@master #  or "./" if in a local set-up
+        if: always()
         with:
-        teams_webhook_url: ${{ secrets.TEAM_HOOK }}
-        message: "Github Action Build Number ${{ github.run_number }} Completed for ${{ github.repository }} and the outcome is  ${{ needs.build.result }}."
+          github-token: ${{ github.token }}
+          webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
