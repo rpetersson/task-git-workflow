@@ -1,6 +1,13 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
+  Send-Message-To-Teams:
+    - name: Microsoft Teams Webhook Notifications
+      uses: dhollerbach/actions.send-message-to-ms-teams@1.0.10
+      with:
+        webhook: "https://teams.microsoft.com/l/channel/19%3aYjGXKP-IoOZu0OVxRgide-NdWIWqfftQG4PigDdl2ds1%40thread.tacv2/General?groupId=577ba579-196f-40ae-a45e-c98693887651&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6"
+        message: "Automated message from github pull-request /robert"
+
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
@@ -15,13 +22,3 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-
-  on: [pull]
-  jobs:
-    Send-Message-To-Teams:
-      - name: Microsoft Teams Webhook Notifications
-        uses: dhollerbach/actions.send-message-to-ms-teams@1.0.10
-        with:
-          webhook: "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDM2Zjg5MWItMzA0OS00YzQyLWIyNTItODlmNzVkMGVlZWQz%40thread.v2/0?context=%7b%22Tid%22%3a%22e2a7fc76-2989-4d79-a54d-25dec1c562f6%22%2c%22Oid%22%3a%22753868f1-633a-4f08-b194-d1634b35896d%22%7d"
-          message: "Automated message from github pull-request /robert"
-      
