@@ -1,15 +1,25 @@
-name: test-push-teams
+name: Pipeline Name
 
 on:
-  push
-
+push:
+    branches: [ branch_name ]
+pull_request:
+    branches: [ branch_name ]
 jobs:
-  onpush:
-    name: test
+
+build:
     runs-on: ubuntu-latest
     steps:
-      - name: onpush
-        uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
+    - name: Demo Step
+      run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$GITHUB_RUN_NUMBER
+notify:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: build
+    steps:
+    - name: Send a Notification
+        id: notify
+        uses: thechetantalwar/teams-notify@v2
         with:
-          webhook: 'https://teams.microsoft.com/l/channel/19%3akkTnjDuh5h2j4hWbChR94DhLyGVTRIWgdPc5VqHlg8M1%40thread.tacv2/General?groupId=1d75ca70-3c5b-408e-87e2-42de95afc0f6&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6'
-          message: 'W00t it werked!'
+        teams_webhook_url: "https://teams.microsoft.com/l/channel/19%3a0cd2b646a6be4d7faa004c4fb86db4b0%40thread.tacv2/Test?groupId=1d75ca70-3c5b-408e-87e2-42de95afc0f6&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6"
+        message: "Github Action Build Number ${{ github.run_number }} Completed for ${{ github.repository }} and the outcome is  ${{ needs.build.result }}."
