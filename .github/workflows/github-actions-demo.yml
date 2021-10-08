@@ -1,27 +1,11 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Send Message to Teams:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-
-  on: [pull]
-  jobs:
-    Send-Message-To-Teams:
-      - name: Microsoft Teams Webhook Notifications
-        uses: dhollerbach/actions.send-message-to-ms-teams@1.0.10
+      - name: Send message to teams
+      - uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
         with:
-          webhook: "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDM2Zjg5MWItMzA0OS00YzQyLWIyNTItODlmNzVkMGVlZWQz%40thread.v2/0?context=%7b%22Tid%22%3a%22e2a7fc76-2989-4d79-a54d-25dec1c562f6%22%2c%22Oid%22%3a%22753868f1-633a-4f08-b194-d1634b35896d%22%7d"
+          webhook: "https://teams.microsoft.com/l/channel/19%3aYjGXKP-IoOZu0OVxRgide-NdWIWqfftQG4PigDdl2ds1%40thread.tacv2/General?groupId=577ba579-196f-40ae-a45e-c98693887651&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6"
           message: "Automated message from github pull-request /robert"
-      
