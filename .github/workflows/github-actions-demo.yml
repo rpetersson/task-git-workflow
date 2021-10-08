@@ -1,4 +1,4 @@
-name: Pipeline Name
+name: task-git-workflow
 
 on:
 push:
@@ -10,7 +10,7 @@ jobs:
 build:
     runs-on: ubuntu-latest
     steps:
-    - name: Demo Step
+    - name: Notify Teams
       run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$GITHUB_RUN_NUMBER
 notify:
     runs-on: ubuntu-latest
