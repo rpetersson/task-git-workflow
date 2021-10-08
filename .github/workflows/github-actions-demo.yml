@@ -8,6 +8,6 @@ jobs:
     steps:
     - uses: FTsbrown/msteams-action@master
       with: 
-        TITLE: Hello from GitHub  # the message title
-	      BODY: 🎉🎉(ﾉ≧∇≦)ﾉ 🎉🎉  # the body of the message
+        TITLE: "Hello from GitHub"  # the message title
+	      BODY: "asd"  # the body of the message
 	      MS_TEAMS_WEBHOOK: "https://teams.microsoft.com/l/channel/19%3aYjGXKP-IoOZu0OVxRgide-NdWIWqfftQG4PigDdl2ds1%40thread.tacv2/General?groupId=577ba579-196f-40ae-a45e-c98693887651&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6" # 
