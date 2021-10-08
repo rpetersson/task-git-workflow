@@ -6,18 +6,3 @@ jobs:
       with:
         webhook: "https://teams.microsoft.com/l/channel/19%3aYjGXKP-IoOZu0OVxRgide-NdWIWqfftQG4PigDdl2ds1%40thread.tacv2/General?groupId=577ba579-196f-40ae-a45e-c98693887651&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6"
         message: "Automated message from github pull-request /robert"
-
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
