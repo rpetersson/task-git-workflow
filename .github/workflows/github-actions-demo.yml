@@ -15,3 +15,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  on: [pull]
+  jobs:
+    Send-Message-To-Teams:
+      - name: Microsoft Teams Webhook Notifications
+        uses: dhollerbach/actions.send-message-to-ms-teams@1.0.10
+        with:
+          webhook: "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDM2Zjg5MWItMzA0OS00YzQyLWIyNTItODlmNzVkMGVlZWQz%40thread.v2/0?context=%7b%22Tid%22%3a%22e2a7fc76-2989-4d79-a54d-25dec1c562f6%22%2c%22Oid%22%3a%22753868f1-633a-4f08-b194-d1634b35896d%22%7d"
+          message: "Automated message from github pull-request /robert"
+      
