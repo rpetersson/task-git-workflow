@@ -11,6 +11,5 @@ jobs:
       - name: onpush
         uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
         with:
-          webhook: 'https://teams.microsoft.com/l/channel/19%3aYjGXKP-IoOZu0OVxRgide-NdWIWqfftQG4PigDdl2ds1%40thread.tacv2/General?groupId=577ba579-196f-40ae-a45e-c98693887651&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6'
+          webhook: 'https://teams.microsoft.com/l/channel/19%3akkTnjDuh5h2j4hWbChR94DhLyGVTRIWgdPc5VqHlg8M1%40thread.tacv2/General?groupId=1d75ca70-3c5b-408e-87e2-42de95afc0f6&tenantId=e2a7fc76-2989-4d79-a54d-25dec1c562f6'
           message: 'W00t it werked!'
-
