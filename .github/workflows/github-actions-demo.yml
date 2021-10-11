@@ -1,4 +1,4 @@
-name: MS Teams Deploy Card
+name: MS Teams Deploy Something new
 
 on: [push]
 
